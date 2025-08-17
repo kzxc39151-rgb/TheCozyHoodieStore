@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product | Hoodie Store</title>
+  <title>Product Details | Hoodie Store</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -22,54 +20,15 @@
   </nav>
 
   <!-- Product Detail -->
-  <section class="product-detail" id="product-detail"></section>
+  <section class="product-detail" id="product-detail">
+    <!-- Product content loads here dynamically -->
+  </section>
 
   <!-- Footer -->
   <footer>
     <p>©️ 2025 Hoodie Store | All Rights Reserved</p>
-    <div class="social-links">
-      <a href="https://wa.me/919999999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://instagram.com/yourstore" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
   </footer>
 
-  <script src="products.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const productId = params.get("id");
-
-    const product = products.find(p => p.id === productId);
-    const container = document.getElementById("product-detail");
-
-    if (product) {
-      const sizeOptions = product.sizes.map(size =>
-        `<option value="${size.name}" ${!size.available ? "disabled" : ""}>
-          ${size.name} ${!size.available ? "(Sold Out)" : ""}
-        </option>`
-      ).join("");
-
-      container.innerHTML = `
-        <div class="product-images">
-          <img src="${product.image}" alt="${product.name}">
-        </div>
-        <div class="product-info">
-          <h1>${product.name}</h1>
-          <p class="price">${product.price}</p>
-          <p class="short-desc">${product.desc}</p>
-          <div class="sizes">
-            <label for="size">Select Size:</label>
-            <select id="size">${sizeOptions}</select>
-          </div>
-          <a href="https://wa.me/919999999999?text=I want to order ${product.name}" class="btn" target="_blank">Buy Now</a>
-          <div class="description">
-            <h3>Product Details</h3>
-            <p>${product.details}</p>
-          </div>
-        </div>
-      `;
-    } else {
-      container.innerHTML = "<p>Product not found.</p>";
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
