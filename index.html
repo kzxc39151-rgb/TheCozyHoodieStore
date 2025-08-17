@@ -13,10 +13,7 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">🔥 HoodieStore</div>
-
-    <!-- Hamburger Icon -->
     <div class="hamburger"></div>
-
     <ul class="nav-links" id="navMenu">
       <li><a href="#hero">Home</a></li>
       <li><a href="#products">Products</a></li>
@@ -37,23 +34,8 @@
   <!-- Products Section -->
   <section id="products" class="products">
     <h2>Our Collection</h2>
-    <div class="product-grid">
-      <div class="card">
-        <img src="images/hoodie1.jpg" alt="Black Hoodie">
-        <div class="card-info">
-          <h3>Classic Black Hoodie</h3>
-          <p>₹1499</p>
-          <a href="black_hoodie.html" class="btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/hoodie2.jpg" alt="Gray Hoodie">
-        <div class="card-info">
-          <h3>Casual Gray Hoodie</h3>
-          <p>₹1499</p>
-          <a href="white_hoodie.html" class="btn">Buy Now</a>
-        </div>
-      </div>
+    <div class="product-grid" id="product-grid">
+      <!-- Products will be injected here by JS -->
     </div>
   </section>
 
@@ -91,11 +73,28 @@
   <!-- Floating Go to Top Button -->
   <a href="#hero" class="go-top">⬆</a>
 
-  <!-- JS for Hamburger -->
+  <!-- Scripts -->
+  <script src="products.js"></script>
   <script>
+    const grid = document.getElementById("product-grid");
+
+    Object.values(products).forEach(p => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <img src="${p.images[0]}" alt="${p.name}">
+        <div class="card-info">
+          <h3>${p.name}</h3>
+          <p>₹${p.price}</p>
+          <a href="product.html?id=${p.id}" class="btn">View</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Navbar toggle
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.getElementById("navMenu");
-
     hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("show");
       hamburger.classList.toggle("active");
