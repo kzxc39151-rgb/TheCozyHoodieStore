@@ -7,22 +7,22 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> <!-- For icons -->
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">🔥 HoodieStore</div>
-    <ul class="nav-links" id="navLinks">
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger"></div>
+
+    <ul class="nav-links" id="navMenu">
       <li><a href="#hero">Home</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#about">About</a></li>
-      <!--<li><a href="#testimonials">Reviews</a></li>-->
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <!-- Hamburger for mobile -->
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </nav>
 
   <!-- Hero Section -->
@@ -42,7 +42,7 @@
         <img src="images/hoodie1.jpg" alt="Black Hoodie">
         <div class="card-info">
           <h3>Classic Black Hoodie</h3>
-          <p> ₹1499</p>
+          <p>₹1499</p>
           <a href="#" class="btn">Buy Now</a>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <img src="images/hoodie2.jpg" alt="Gray Hoodie">
         <div class="card-info">
           <h3>Casual Gray Hoodie</h3>
-          <p> ₹1499</p>
+          <p>₹1499</p>
           <a href="#" class="btn">Buy Now</a>
         </div>
       </div>
@@ -58,7 +58,7 @@
         <img src="images/hoodie3.jpg" alt="Red Hoodie">
         <div class="card-info">
           <h3>Red Street Hoodie</h3>
-          <p> ₹1499</p>
+          <p>₹1499</p>
           <a href="#" class="btn">Buy Now</a>
         </div>
       </div>
@@ -78,9 +78,9 @@
   <!-- Newsletter -->
   <section class="newsletter">
     <h2>Stay in the Loop</h2>
-    <p>Follow us on instagram to get updates on new drops and exclusive discounts.</p>
+    <p>Follow us on Instagram to get updates on new drops and exclusive discounts.</p>
     <a href="https://instagram.com/parassharma0505" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="30" height="30"> 
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="30" height="30">
     </a>
   </section>
 
@@ -99,12 +99,15 @@
   <!-- Floating Go to Top Button -->
   <a href="#hero" class="go-top">⬆</a>
 
-  <!-- Mobile menu script -->
+  <!-- JS for Hamburger -->
   <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
-    }
-  </script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.getElementById("navMenu");
 
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+      hamburger.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
