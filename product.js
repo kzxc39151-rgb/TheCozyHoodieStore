@@ -5,6 +5,12 @@ const products = [
     image: "images/hoodie1.jpg",
     desc: "Premium cotton hoodie, perfect for daily wear.",
     price: "₹1499",
+    sizes: [
+      { name: "S", available: true },
+      { name: "M", available: true },
+      { name: "L", available: false },
+      { name: "XL", available: true }
+    ],
     details: `
       Our Classic Black Hoodie is crafted from high-quality cotton blend,
       offering warmth, breathability, and ultimate comfort.
@@ -22,32 +28,20 @@ const products = [
     image: "images/hoodie2.jpg",
     desc: "Minimalist white hoodie with relaxed fit.",
     price: "₹1399",
+    sizes: [
+      { name: "S", available: true },
+      { name: "M", available: true },
+      { name: "L", available: true },
+      { name: "XL", available: false }
+    ],
     details: `
       Sleek white hoodie designed for comfort and casual wear.
       <ul>
         <li>Material: Cotton Blend</li>
-        <li>Available Sizes: M, L</li>
+        <li>Available Sizes: S, M, L</li>
         <li>Color: White</li>
         <li>Care: Machine wash warm</li>
       </ul>
     `
   }
 ];
-
-// Show products on homepage
-const grid = document.getElementById("product-grid");
-if (grid) {
-  grid.innerHTML = "";
-  products.forEach(p => {
-    grid.innerHTML += `
-      <div class="card">
-        <img src="${p.image}" alt="${p.name}">
-        <div class="card-info">
-          <h3>${p.name}</h3>
-          <p>${p.desc}</p>
-          <a href="product.html?id=${p.id}" class="btn">View Details</a>
-        </div>
-      </div>
-    `;
-  });
-}
