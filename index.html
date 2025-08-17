@@ -14,13 +14,15 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">🔥 HoodieStore</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#about">About</a></li>
       <!--<li><a href="#testimonials">Reviews</a></li>-->
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <!-- Hamburger for mobile -->
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </nav>
 
   <!-- Hero Section -->
@@ -73,31 +75,13 @@
     </p>
   </section>
 
-  <!-- Testimonials Section -->
-  <!--
-  <section id="testimonials" class="testimonials">
-    <h2>What Our Customers Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial">
-        <p>"The hoodie quality is top-notch, super comfy and stylish. Worth every penny!"</p>
-        <h4>- Arjun</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Fast delivery and the fit is perfect. I’ve already ordered my second one!"</p>
-        <h4>- Priya</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Finally found a hoodie that’s both warm and breathable. Highly recommend."</p>
-        <h4>- Karan</h4>
-      </div>
-    </div>
-  </section>
--->
   <!-- Newsletter -->
   <section class="newsletter">
     <h2>Stay in the Loop</h2>
     <p>Follow us on instagram to get updates on new drops and exclusive discounts.</p>
-    <a href="https://instagram.com/parassharma0505" target="_blank"><i class="fab fa-instagram"></i> <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="30" height="30"> </a>
+    <a href="https://instagram.com/parassharma0505" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="30" height="30"> 
+    </a>
   </section>
 
   <!-- Contact -->
@@ -109,11 +93,18 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Hoodie Store | All Rights Reserved</p>
+    <p>©️ 2025 Hoodie Store | All Rights Reserved</p>
   </footer>
 
   <!-- Floating Go to Top Button -->
   <a href="#hero" class="go-top">⬆</a>
+
+  <!-- Mobile menu script -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>
