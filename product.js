@@ -1,36 +1,53 @@
-// products.js
-const products = {
-  black: {
-    id: "black",
+const products = [
+  {
+    id: "black-hoodie",
     name: "Classic Black Hoodie",
-    price: 1499,
-    shortDesc: "Premium cotton hoodie, perfect for daily wear and all seasons.",
-    description: `Our Classic Black Hoodie is crafted from high-quality cotton blend, 
-      offering warmth, breathability, and ultimate comfort.`,
-    details: [
-      "Material: 100% Cotton Blend",
-      "Available Sizes: S, M, XL",
-      "Color: Jet Black",
-      "Care: Machine wash cold"
-    ],
-    sizes: ["S", "M", "L", "XL"],
-    outOfStock: ["L"],
-    images: ["images/hoodie1.jpg"]
+    image: "images/hoodie1.jpg",
+    desc: "Premium cotton hoodie, perfect for daily wear.",
+    price: "₹1499",
+    details: `
+      Our Classic Black Hoodie is crafted from high-quality cotton blend,
+      offering warmth, breathability, and ultimate comfort.
+      <ul>
+        <li>Material: 100% Cotton Blend</li>
+        <li>Available Sizes: S, M, XL</li>
+        <li>Color: Jet Black</li>
+        <li>Care: Machine wash cold</li>
+      </ul>
+    `
   },
-  white: {
-    id: "white",
-    name: "Classic White Hoodie",
-    price: 1599,
-    shortDesc: "Clean white hoodie for fresh, minimalist vibes.",
-    description: `The Classic White Hoodie offers timeless style with a soft, breathable fabric.`,
-    details: [
-      "Material: 95% Cotton, 5% Polyester",
-      "Available Sizes: S, M, L",
-      "Color: White",
-      "Care: Hand wash recommended"
-    ],
-    sizes: ["S", "M", "L"],
-    outOfStock: [],
-    images: ["images/hoodie2.jpg"]
+  {
+    id: "white-hoodie",
+    name: "White Hoodie",
+    image: "images/hoodie2.jpg",
+    desc: "Minimalist white hoodie with relaxed fit.",
+    price: "₹1399",
+    details: `
+      Sleek white hoodie designed for comfort and casual wear.
+      <ul>
+        <li>Material: Cotton Blend</li>
+        <li>Available Sizes: M, L</li>
+        <li>Color: White</li>
+        <li>Care: Machine wash warm</li>
+      </ul>
+    `
   }
-};
+];
+
+// Show products on homepage
+const grid = document.getElementById("product-grid");
+if (grid) {
+  grid.innerHTML = "";
+  products.forEach(p => {
+    grid.innerHTML += `
+      <div class="card">
+        <img src="${p.image}" alt="${p.name}">
+        <div class="card-info">
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+          <a href="product.html?id=${p.id}" class="btn">View Details</a>
+        </div>
+      </div>
+    `;
+  });
+}
