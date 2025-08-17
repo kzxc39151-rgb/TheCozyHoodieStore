@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoodie Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🔥 HoodieStore</div>
+    <div class="hamburger"></div>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-text">
+      <h1>Style Meets Comfort</h1>
+      <p>Premium hoodies designed for every season. Shop the latest streetwear trends now.</p>
+      <a href="#products" class="btn">Shop Collection</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products">
+    <h2>Our Collection</h2>
+    <div class="product-grid" id="product-grid">
+      <!-- Products will be injected here by JS -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      HoodieStore is more than just fashion — it’s a lifestyle.  
+      Our hoodies are crafted with premium fabrics, blending comfort with modern streetwear design.  
+      Designed for those who love confidence, comfort, and style.  
+    </p>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>Stay in the Loop</h2>
+    <p>Follow us on Instagram to get updates on new drops and exclusive discounts.</p>
+    <a href="https://instagram.com/parassharma0505" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="30" height="30">
+    </a>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: will add in future</p>
+    <p>Whatsapp Channel: will add in future</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>©️ 2025 Hoodie Store | All Rights Reserved</p>
+  </footer>
+
+  <!-- Floating Go to Top Button -->
+  <a href="#hero" class="go-top">⬆</a>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script>
+    const grid = document.getElementById("product-grid");
+
+    Object.values(products).forEach(p => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <img src="${p.images[0]}" alt="${p.name}">
+        <div class="card-info">
+          <h3>${p.name}</h3>
+          <p>₹${p.price}</p>
+          <a href="product.html?id=${p.id}" class="btn">View</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Navbar toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.getElementById("navMenu");
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+      hamburger.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
