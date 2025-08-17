@@ -5,49 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hoodie Store</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> <!-- For icons -->
 </head>
 <body>
 
-  <header id="top">
-    <h1>🔥 Hoodie Store</h1>
-  </header>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🔥 HoodieStore</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <section class="hero">
-    <h2>Stylish & Comfortable Hoodies</h2>
-    <p>Find the best hoodies for every season. Trendy, comfy & affordable.</p>
-    <a href="#products" class="btn">Shop Now</a>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-text">
+      <h1>Style Meets Comfort</h1>
+      <p>Premium hoodies designed for every season. Shop the latest streetwear trends now.</p>
+      <a href="#products" class="btn">Shop Collection</a>
+    </div>
   </section>
 
+  <!-- Products Section -->
   <section id="products" class="products">
-    <div class="card">
-      <img src="images/hoodie1.jpg" alt="Black Hoodie">
-      <h3>Classic Black Hoodie</h3>
-      <p>₹1499</p>
-      <a href="#" class="btn">Buy Now</a>
-    </div>
-    <div class="card">
-      <img src="images/hoodie2.jpg" alt="Gray Hoodie">
-      <h3>Casual Gray Hoodie</h3>
-      <p>₹1499</p>
-      <a href="#" class="btn">Buy Now</a>
-    </div>
-    <div class="card">
-      <img src="images/hoodie3.jpg" alt="Red Hoodie">
-      <h3>Red Street Hoodie</h3>
-      <p>₹1499</p>
-      <a href="#" class="btn">Buy Now</a>
+    <h2>Our Collection</h2>
+    <div class="product-grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1602810318383-91d8e6a2eae2" alt="Black Hoodie">
+        <div class="card-info">
+          <h3>Classic Black Hoodie</h3>
+          <p>$39.99</p>
+          <a href="#" class="btn">Buy Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1593032465171-8b1c7a2a9b42" alt="Gray Hoodie">
+        <div class="card-info">
+          <h3>Casual Gray Hoodie</h3>
+          <p>$34.99</p>
+          <a href="#" class="btn">Buy Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1617957741789-93e15ef89aab" alt="Red Hoodie">
+        <div class="card-info">
+          <h3>Red Street Hoodie</h3>
+          <p>$44.99</p>
+          <a href="#" class="btn">Buy Now</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 Hoodie Store | Follow us on 
-      <a href="https://instagram.com/parassharma0505" target="_blank"> <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" 
-         alt="Instagram" width="30" height="30"> </a>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      HoodieStore is more than just fashion — it’s a lifestyle.  
+      Our hoodies are crafted with premium fabrics, blending comfort with modern streetwear design.  
+      Designed for those who love confidence, comfort, and style.  
     </p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"The hoodie quality is top-notch, super comfy and stylish. Worth every penny!"</p>
+        <h4>- Arjun</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Fast delivery and the fit is perfect. I’ve already ordered my second one!"</p>
+        <h4>- Priya</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Finally found a hoodie that’s both warm and breathable. Highly recommend."</p>
+        <h4>- Karan</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>Stay in the Loop</h2>
+    <p>Subscribe to get updates on new drops and exclusive discounts.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@hoodiestore.com</p>
+    <p>Follow us on 
+      <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Hoodie Store | All Rights Reserved</p>
   </footer>
 
   <!-- Floating Go to Top Button -->
-  <a href="#top" class="go-top">⬆</a>
+  <a href="#hero" class="go-top">⬆</a>
 
 </body>
 </html>
