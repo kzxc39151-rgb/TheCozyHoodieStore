@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hoodie Store</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">🔥 HoodieStore</div>
-    <ul class="nav-links">
+    <div class="hamburger"></div>
+    <ul class="nav-links" id="navMenu">
       <li><a href="#hero">Home</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#about">About</a></li>
@@ -21,35 +22,47 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
     <div class="hero-text">
-      <h1>Stylish Hoodies for Every Mood</h1>
-      <p>Premium quality, unbeatable comfort</p>
-      <a href="#products" class="btn">Shop Now</a>
+      <h1>Style Meets Comfort</h1>
+      <p>Premium hoodies designed for every season. Shop the latest streetwear trends now.</p>
+      <a href="#products" class="btn">Shop Collection</a>
     </div>
   </section>
 
-  <!-- Products -->
-  <section class="products" id="products">
+  <!-- Products Section -->
+  <section id="products" class="products">
     <h2>Our Collection</h2>
-    <div class="product-grid" id="product-list"></div>
+    <div class="product-grid" id="product-grid">
+      <!-- Products will load here dynamically -->
+    </div>
   </section>
 
-  <!-- About -->
-  <section class="about" id="about">
+  <!-- About Section -->
+  <section id="about" class="about">
     <h2>About Us</h2>
-    <p>We craft premium hoodies with love and quality. Perfect for your style and comfort.</p>
+    <p>
+      HoodieStore is more than just fashion — it’s a lifestyle.  
+      Our hoodies are crafted with premium fabrics, blending comfort with modern streetwear design.  
+      Designed for those who love confidence, comfort, and style.  
+    </p>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>Stay in the Loop</h2>
+    <p>Follow us on Instagram to get updates on new drops and exclusive discounts.</p>
+    <a href="https://instagram.com/parassharma0505" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="30" height="30">
+    </a>
   </section>
 
   <!-- Contact -->
-  <section class="contact" id="contact">
+  <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p>Email: support@hoodiestore.com</p>
-    <div class="social-links">
-      <a href="https://wa.me/919999999999" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="https://instagram.com/yourstore" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-    </div>
+    <p>Email: will add in future</p>
+    <p>Whatsapp Channel: <a href="https://wa.me/1234567890" target="_blank">Join Here</a></p>
   </section>
 
   <!-- Footer -->
@@ -57,30 +70,10 @@
     <p>©️ 2025 Hoodie Store | All Rights Reserved</p>
   </footer>
 
-  <script src="products.js"></script>
-  <script>
-    const listContainer = document.getElementById("product-list");
+  <!-- Floating Go to Top Button -->
+  <a href="#hero" class="go-top">⬆</a>
 
-    products.forEach(product => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-
-      // if all sizes are sold out
-      const allSoldOut = product.sizes.every(s => !s.available);
-
-      card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        ${allSoldOut ? `<span class="soldout-badge">Sold Out</span>` : ""}
-        <div class="card-info">
-          <h3>${product.name}</h3>
-          <p>${product.desc}</p>
-          <p><strong>${product.price}</strong></p>
-          <a href="product.html?id=${product.id}" class="btn">View Details</a>
-        </div>
-      `;
-
-      listContainer.appendChild(card);
-    });
-  </script>
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
