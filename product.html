@@ -3,66 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoodie Store</title>
+  <title>Product | Hoodie Store</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">🔥 HoodieStore</div>
-    <div class="hamburger"></div>
-    <ul class="nav-links" id="navMenu">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-text">
-      <h1>Style Meets Comfort</h1>
-      <p>Premium hoodies designed for every season. Shop the latest streetwear trends now.</p>
-      <a href="#products" class="btn">Shop Collection</a>
+  <!-- Product Detail -->
+  <section class="product-detail" id="product-detail">
+    <div class="product-images">
+      <img id="product-image" src="" alt="Product Image">
     </div>
-  </section>
 
-  <!-- Products Section -->
-  <section id="products" class="products">
-    <h2>Our Collection</h2>
-    <div class="product-grid" id="product-grid">
-      <!-- Products will be injected here by JS -->
+    <div class="product-info">
+      <h1 id="product-name"></h1>
+      <p class="price" id="product-price"></p>
+      <p class="short-desc" id="product-short"></p>
+
+      <!-- Size Selection -->
+      <div class="sizes">
+        <label for="size">Select Size:</label>
+        <select id="size"></select>
+      </div>
+
+      <!-- Buy Button -->
+      <a href="#" class="btn">Buy Now</a>
+
+      <!-- Detailed Description -->
+      <div class="description">
+        <h3>Product Details</h3>
+        <p id="product-description"></p>
+        <ul id="product-details"></ul>
+      </div>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>
-      HoodieStore is more than just fashion — it’s a lifestyle.  
-      Our hoodies are crafted with premium fabrics, blending comfort with modern streetwear design.  
-      Designed for those who love confidence, comfort, and style.  
-    </p>
-  </section>
-
-  <!-- Newsletter -->
-  <section class="newsletter">
-    <h2>Stay in the Loop</h2>
-    <p>Follow us on Instagram to get updates on new drops and exclusive discounts.</p>
-    <a href="https://instagram.com/parassharma0505" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="30" height="30">
-    </a>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Email: will add in future</p>
-    <p>Whatsapp Channel: will add in future</p>
   </section>
 
   <!-- Footer -->
@@ -70,35 +53,44 @@
     <p>©️ 2025 Hoodie Store | All Rights Reserved</p>
   </footer>
 
-  <!-- Floating Go to Top Button -->
-  <a href="#hero" class="go-top">⬆</a>
-
   <!-- Scripts -->
   <script src="products.js"></script>
   <script>
-    const grid = document.getElementById("product-grid");
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
 
-    Object.values(products).forEach(p => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-      card.innerHTML = `
-        <img src="${p.images[0]}" alt="${p.name}">
-        <div class="card-info">
-          <h3>${p.name}</h3>
-          <p>₹${p.price}</p>
-          <a href="product.html?id=${p.id}" class="btn">View</a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
+    if (products[productId]) {
+      const p = products[productId];
+      document.title = `${p.name} | Hoodie Store`;
+      document.getElementById("product-image").src = p.images[0];
+      document.getElementById("product-name").textContent = p.name;
+      document.getElementById("product-price").textContent = "₹" + p.price;
+      document.getElementById("product-short").textContent = p.shortDesc;
+      document.getElementById("product-description").textContent = p.description;
 
-    // Navbar toggle
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.getElementById("navMenu");
-    hamburger.addEventListener("click", () => {
-      navMenu.classList.toggle("show");
-      hamburger.classList.toggle("active");
-    });
+      const ul = document.getElementById("product-details");
+      ul.innerHTML = "";
+      p.details.forEach(d => {
+        const li = document.createElement("li");
+        li.textContent = d;
+        ul.appendChild(li);
+      });
+
+      const sizeSelect = document.getElementById("size");
+      sizeSelect.innerHTML = "";
+      p.sizes.forEach(size => {
+        const opt = document.createElement("option");
+        opt.value = size;
+        opt.textContent = size;
+        if (p.outOfStock.includes(size)) {
+          opt.disabled = true;
+          opt.textContent += " (Sold Out)";
+        }
+        sizeSelect.appendChild(opt);
+      });
+    } else {
+      document.getElementById("product-detail").innerHTML = "<h2>Product Not Found</h2>";
+    }
   </script>
 </body>
 </html>
