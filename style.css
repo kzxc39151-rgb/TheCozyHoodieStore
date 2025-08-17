@@ -29,7 +29,7 @@ body {
 .logo {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #00ff99; /* neon green */
+  color: #00ff99;
 }
 
 .nav-links {
@@ -91,7 +91,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* Products */
+/* Products Section */
 .products {
   padding: 5rem 8% 3rem;
   text-align: center;
@@ -101,6 +101,7 @@ body {
 .products h2 {
   font-size: 2.2rem;
   margin-bottom: 2rem;
+  color: #00ff99;
 }
 
 .product-grid {
@@ -115,6 +116,9 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -123,21 +127,89 @@ body {
 
 .card img {
   width: 100%;
+  height: 300px;
+  object-fit: cover;
   display: block;
 }
 
 .card-info {
   padding: 1.5rem;
+  text-align: left;
 }
 
 .card-info h3 {
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
+  color: #fff;
 }
 
 .card-info p {
   margin-bottom: 1rem;
   color: #aaa;
+  font-size: 1rem;
+}
+
+/* Product Detail Page */
+.product-detail {
+  padding: 7rem 8% 3rem;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  background: #111;
+}
+
+.product-images img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.product-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.product-info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ff99;
+  margin-bottom: 1rem;
+}
+
+.short-desc {
+  margin-bottom: 1.5rem;
+  color: #ccc;
+}
+
+.sizes {
+  margin-bottom: 1.5rem;
+}
+
+.sizes label {
+  font-weight: 600;
+}
+
+.sizes select {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.description {
+  margin-top: 2rem;
+}
+
+.description h3 {
+  margin-bottom: 0.8rem;
+  color: #00ff99;
 }
 
 /* About */
@@ -164,6 +236,8 @@ body {
   margin-top: 1rem;
   display: inline-block;
   color: #000;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* Contact */
@@ -216,4 +290,5 @@ footer {
   .hero-text h1 { font-size: 2.2rem; }
   .hero-text p { font-size: 1rem; }
   .nav-links { display: none; }
+  .product-detail { flex-direction: column; }
 }
